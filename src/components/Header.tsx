@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import LogoVideo from "@/components/LogoVideo";
 import type { PageFields } from "@/lib/contentful";
 
 interface HeaderProps {
@@ -12,7 +12,6 @@ interface HeaderProps {
 
 export default function Header({
   siteName,
-  logoUrl,
   navigation,
   currentSlug,
 }: HeaderProps) {
@@ -20,11 +19,7 @@ export default function Header({
     <header className="site-header">
       <div className="container">
         <Link href="/" className="site-header__logo" aria-label={`${siteName} — home`}>
-          {logoUrl ? (
-            <Image src={logoUrl} alt={siteName} width={80} height={32} priority />
-          ) : (
-            <span className="site-header__logo-text">{siteName}</span>
-          )}
+          <LogoVideo />
         </Link>
         <nav>
           <ul className="site-nav">

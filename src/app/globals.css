@@ -1,17 +1,28 @@
 /* ---------------------------------------------------------------------------
+   Font faces
+   --------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/StyreneB-Light-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------------------
    Custom properties
    --------------------------------------------------------------------------- */
 
 :root {
-  --color-text: #1a1a1a;
-  --color-text-muted: #6b6b6b;
+  --color-text: #282828;
   --color-bg: #ffffff;
   --color-border: #e0e0e0;
   --color-accent: #1a1a1a;
-  --color-accent-hover: #444444;
+  --color-accent-hover: #0b0606;
 
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    "Styrene B", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -65,25 +76,26 @@ a {
 
 h1 {
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.35;
 }
 
 p {
+  font-size: 1.175rem;
   max-width: var(--max-width-narrow);
 }
 
@@ -108,24 +120,26 @@ p {
 
 .site-header {
   padding-block: var(--space-md);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header .container {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: var(--space-md);
 }
 
-.site-header__logo img {
-  height: 2rem;
-  width: auto;
+.site-header__logo img,
+.site-header__logo video {
+  margin-left: -2rem;
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
 }
 
 .site-header__logo-text {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
@@ -151,8 +165,7 @@ p {
 
 .hero-image {
   width: 100%;
-  aspect-ratio: 21 / 9;
-  object-fit: cover;
+  height: auto;
 }
 
 /* ---------------------------------------------------------------------------
@@ -161,10 +174,6 @@ p {
 
 .content-block {
   padding-block: var(--space-lg);
-}
-
-.content-block + .content-block {
-  border-top: 1px solid var(--color-border);
 }
 
 .content-block__heading {
@@ -188,7 +197,7 @@ p {
 .content-block--hero .content-block__body {
   font-size: 1.25rem;
   line-height: 1.5;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .content-block--hero h1 {
@@ -219,16 +228,33 @@ p {
 
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: var(--space-sm);
+  grid-template-columns: 1.2fr 1.8fr 1fr 0.8fr;
+  gap: var(--space-md);
   margin-top: var(--space-md);
 }
 
 .image-gallery img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 0.25rem;
+  height: auto;
+}
+
+.image-gallery > *:nth-child(6n + 1) {
+  margin-top: 0;
+}
+.image-gallery > *:nth-child(6n + 2) {
+  margin-top: 2.5rem;
+}
+.image-gallery > *:nth-child(6n + 3) {
+  margin-top: 0.75rem;
+}
+.image-gallery > *:nth-child(6n + 4) {
+  margin-top: 3rem;
+}
+.image-gallery > *:nth-child(6n + 5) {
+  margin-top: 0.5rem;
+}
+.image-gallery > *:nth-child(6n + 6) {
+  margin-top: 1.75rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -317,8 +343,7 @@ p {
 
 .site-footer {
   padding-block: var(--space-md);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 0.875rem;
 }
 
@@ -347,11 +372,16 @@ p {
   }
 
   .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: baseline;
   }
 
   .site-nav {
+    gap: var(--space-sm);
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr 1.2fr;
     gap: var(--space-sm);
   }
 
