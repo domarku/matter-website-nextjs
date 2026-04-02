@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getSiteSettings, getAssetUrl } from "@/lib/contentful";
@@ -35,6 +36,7 @@ export default async function RootLayout({
         />
         <main>{children}</main>
         <Footer siteName={siteName} />
+        <Analytics />
       </body>
     </html>
   );
