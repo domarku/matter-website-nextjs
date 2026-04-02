@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import ContentBlock from "@/components/ContentBlock";
 import ApplyForm from "@/components/ApplyForm";
+import HeroImage from "@/components/HeroImage";
 import {
   getPageBySlug,
   getAssetUrl,
@@ -30,9 +31,7 @@ export default async function ApplyPage() {
 
   return (
     <>
-      {headerImageUrl && (
-        <img className="hero-image" src={headerImageUrl} alt="" />
-      )}
+      {headerImageUrl && <HeroImage src={headerImageUrl} />}
       {blocks.map((block, i) => {
         const typeId = block.sys.contentType?.sys?.id;
         if (typeId === "contentBlock") {

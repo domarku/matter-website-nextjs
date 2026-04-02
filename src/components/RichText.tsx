@@ -15,7 +15,8 @@ export default function RichText({ document }: RichTextProps) {
         const url = getAssetUrl(node.data.target);
         const alt = getAssetAlt(node.data.target);
         if (!url) return "";
-        return `<img src="${url}" alt="${alt}" loading="lazy" />`;
+        const optimized = `${url}?w=1200&q=80&fm=webp`;
+        return `<img src="${optimized}" alt="${alt}" loading="lazy" />`;
       },
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       [INLINES.HYPERLINK]: (node: any, next: any) => {

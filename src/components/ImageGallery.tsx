@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getAssetUrl, getAssetAlt } from "@/lib/contentful";
 import type { Asset } from "contentful";
 
@@ -13,11 +14,14 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   return (
     <div className="image-gallery">
       {validImages.map((img, i) => (
-        <img
+        <Image
           key={i}
-          src={getAssetUrl(img)}
+          src={getAssetUrl(img)!}
           alt={getAssetAlt(img)}
-          loading="lazy"
+          width={600}
+          height={450}
+          sizes="(max-width: 48rem) 100vw, 33vw"
+          style={{ objectFit: "cover" }}
         />
       ))}
     </div>
