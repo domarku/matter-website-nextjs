@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Styrene B";
-  src: url("/StyreneB-Light-Trial.otf") format("opentype");
+  src: url("/StyreneB-Regular-Trial.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -53,6 +53,7 @@ html {
 }
 
 body {
+  font-size: 1.125rem;
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -70,19 +71,27 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: "— ";
+}
+
+ul li {
+  padding-left: 0.25em;
+}
+
 /* ---------------------------------------------------------------------------
    Typography
    --------------------------------------------------------------------------- */
 
 h1 {
-  font-size: 2.5rem;
+  /* font-size: 1rem; */
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 1.75rem;
+  /* font-size: 1.75rem; */
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -131,7 +140,7 @@ p {
 
 .site-header__logo img,
 .site-header__logo video {
-  margin-left: -2rem;
+  margin-left: -2.3rem;
   height: 100px;
   width: 100px;
   object-fit: contain;
@@ -150,7 +159,6 @@ p {
 }
 
 .site-nav a {
-  font-size: 0.9375rem;
   transition: color 0.15s ease;
 }
 
@@ -198,11 +206,6 @@ p {
   font-size: 1.25rem;
   line-height: 1.5;
   color: var(--color-text);
-}
-
-.content-block--hero h1 {
-  font-size: 3rem;
-  letter-spacing: -0.03em;
 }
 
 /* CTA */
@@ -337,6 +340,28 @@ p {
   color: #991b1b;
 }
 
+.form__field--checkbox {
+  margin-bottom: var(--space-sm);
+}
+
+.form__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.form__checkbox-label input[type="checkbox"] {
+  margin-top: 0.2em;
+  flex-shrink: 0;
+}
+
+.form__checkbox-label a {
+  text-decoration: underline;
+}
+
 /* ---------------------------------------------------------------------------
    Footer
    --------------------------------------------------------------------------- */
@@ -352,6 +377,24 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
+}
+
+.site-footer p {
+  font-size: 0.875rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer-nav a {
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* ---------------------------------------------------------------------------

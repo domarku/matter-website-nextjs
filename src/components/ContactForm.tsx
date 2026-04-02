@@ -81,6 +81,17 @@ export default function ContactForm({ heading }: ContactFormProps) {
               required
             />
           </div>
+          <div className="form__field form__field--checkbox">
+            <label className="form__checkbox-label">
+              <input type="checkbox" name="consent" required />
+              <span>
+                I agree to the processing of my data in accordance with the{" "}
+                <a href="/privacy" target="_blank" rel="noopener noreferrer">
+                  Privacy Policy
+                </a>.
+              </span>
+            </label>
+          </div>
           <button type="submit" className="form__submit">Send Message</button>
           {status === "success" && (
             <div className="form__message form__message--success">
