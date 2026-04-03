@@ -207,13 +207,6 @@ p {
   margin-bottom: 0;
 }
 
-/* Hero variant */
-.content-block--hero .content-block__body {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--color-text);
-}
-
 /* CTA */
 .content-block__cta {
   display: inline-block;
