@@ -3,8 +3,8 @@
    --------------------------------------------------------------------------- */
 
 @font-face {
-  font-family: "Styrene B";
-  src: url("/StyreneB-Regular-Trial.otf") format("opentype");
+  font-family: "Exat";
+  src: url("/ExatWide-Light-TEST.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -21,8 +21,7 @@
   --color-accent: #1a1a1a;
   --color-accent-hover: #0b0606;
 
-  --font-sans:
-    "Styrene B", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Exat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;

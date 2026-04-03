@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useCallback } from "react";
 
 export default function LogoVideo() {
   const ref = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
+  const setPlaybackRate = useCallback(() => {
     if (ref.current) {
       ref.current.playbackRate = 3;
     }
@@ -18,7 +18,10 @@ export default function LogoVideo() {
       muted
       loop
       playsInline
-      src="/matter-hi-q-300.webm"
-    />
+      onLoadedMetadata={setPlaybackRate}
+    >
+      <source src="/matter-hi-q-300.webm" type="video/webm" />
+      <source src="/matter-hi-q-300.mp4" type="video/mp4" />
+    </video>
   );
 }
