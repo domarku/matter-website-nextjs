@@ -2,12 +2,14 @@
 
 import { useRef, useCallback } from "react";
 
+const PLAYBACK_RATE = 3;
+
 export default function LogoVideo() {
   const ref = useRef<HTMLVideoElement>(null);
 
-  const setPlaybackRate = useCallback(() => {
-    if (ref.current) {
-      ref.current.playbackRate = 3;
+  const enforceRate = useCallback(() => {
+    if (ref.current && ref.current.playbackRate !== PLAYBACK_RATE) {
+      ref.current.playbackRate = PLAYBACK_RATE;
     }
   }, []);
 
@@ -18,7 +20,9 @@ export default function LogoVideo() {
       muted
       loop
       playsInline
-      onLoadedMetadata={setPlaybackRate}
+      onLoadedMetadata={enforceRate}
+      onPlay={enforceRate}
+      onRateChange={enforceRate}
     >
       <source src="/matter-hi-q-300.webm" type="video/webm" />
       <source src="/matter-hi-q-300.mp4" type="video/mp4" />

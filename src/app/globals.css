@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Exat";
-  src: url("/ExatWide-Light-TEST.otf") format("opentype");
+  src: url("/ExatWide-Regular-TEST.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -83,7 +83,7 @@ ul li {
    --------------------------------------------------------------------------- */
 
 h1 {
-  /* font-size: 1rem; */
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -137,12 +137,15 @@ p {
   gap: var(--space-md);
 }
 
-.site-header__logo img,
-.site-header__logo video {
+.site-header__logo {
   margin-left: -2.3rem;
+}
+
+.site-header__logo video {
   height: 100px;
   width: 100px;
-  object-fit: contain;
+  object-fit: cover;
+  clip-path: inset(3px);
 }
 
 .site-header__logo-text {
@@ -397,12 +400,12 @@ p {
 }
 
 /* ---------------------------------------------------------------------------
-   Responsive
+   Responsive for mobile
    --------------------------------------------------------------------------- */
 
 @media (max-width: 48rem) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
 
   .content-block--hero h1 {
@@ -415,11 +418,13 @@ p {
 
   .site-header .container {
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
   }
 
   .site-nav {
-    gap: var(--space-sm);
+    gap: calc(var(--space-sm) / 2);
+    flex-direction: column;
+    text-align: right;
   }
 
   .image-gallery {
