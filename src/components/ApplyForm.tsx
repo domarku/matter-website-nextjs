@@ -79,16 +79,6 @@ export default function ApplyForm({ heading }: ApplyFormProps) {
               required
             />
           </div>
-          <div className="form__field">
-            <label className="form__label" htmlFor="apply-cv">Link to CV (optional)</label>
-            <input
-              className="form__input"
-              type="url"
-              id="apply-cv"
-              name="cvLink"
-              placeholder="https://"
-            />
-          </div>
           <div className="form__field form__field--checkbox">
             <label className="form__checkbox-label">
               <input type="checkbox" name="consent" required />
