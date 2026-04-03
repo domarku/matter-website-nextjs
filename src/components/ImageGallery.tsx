@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAssetUrl, getAssetAlt } from "@/lib/contentful";
+import { getAssetUrl, getAssetAlt } from "@/lib/contentful-helpers";
 import type { Asset } from "contentful";
 
 interface ImageGalleryProps {

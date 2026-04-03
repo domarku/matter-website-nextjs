@@ -1,6 +1,6 @@
 import Link from "next/link";
 import LogoVideo from "@/components/LogoVideo";
-import type { PageFields } from "@/lib/contentful";
+import type { PageFields } from "@/lib/contentful-helpers";
 
 interface HeaderProps {
   siteName: string;
@@ -16,33 +16,39 @@ export default function Header({
   currentSlug,
 }: HeaderProps) {
   return (
-    <header className="site-header">
-      <div className="container">
-        <Link href="/" className="site-header__logo" aria-label={`${siteName} — home`}>
-          <LogoVideo />
-        </Link>
-        <nav>
-          <ul className="site-nav">
-            {navigation.map((page) => {
-              const fields = page.fields as unknown as PageFields;
-              const slug = fields.slug;
-              const href = slug === "home" ? "/" : `/${slug}`;
-              const isCurrent =
-                slug === currentSlug || (slug === "home" && !currentSlug);
-              return (
-                <li key={page.sys.id}>
-                  <Link
-                    href={href}
-                    aria-current={isCurrent ? "page" : undefined}
-                  >
-                    {fields.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <>
+      <Link
+        href="/"
+        className="site-header__logo"
+        aria-label={`${siteName} — home`}
+      >
+        <LogoVideo />
+      </Link>
+      <header className="site-header">
+        <div className="container">
+          <nav>
+            <ul className="site-nav">
+              {navigation.map((page) => {
+                const fields = page.fields as unknown as PageFields;
+                const slug = fields.slug;
+                const href = slug === "home" ? "/" : `/${slug}`;
+                const isCurrent =
+                  slug === currentSlug || (slug === "home" && !currentSlug);
+                return (
+                  <li key={page.sys.id}>
+                    <Link
+                      href={href}
+                      aria-current={isCurrent ? "page" : undefined}
+                    >
+                      {fields.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </>
   );
 }

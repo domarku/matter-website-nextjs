@@ -1,6 +1,6 @@
 import RichText from "@/components/RichText";
 import ImageGallery from "@/components/ImageGallery";
-import type { ContentBlockFields } from "@/lib/contentful";
+import type { ContentBlockFields } from "@/lib/contentful-helpers";
 import type { Asset } from "contentful";
 
 interface ContentBlockProps {

@@ -1,14 +1,7 @@
 import { notFound } from "next/navigation";
-import ContentBlock from "@/components/ContentBlock";
-import ContactForm from "@/components/ContactForm";
+import BlockRenderer from "@/components/BlockRenderer";
 import HeroImage from "@/components/HeroImage";
-import {
-  getPageBySlug,
-  getAssetUrl,
-  isContentBlock,
-  isFormBlock,
-} from "@/lib/contentful";
-import type { ContentBlockFields, FormBlockFields } from "@/lib/contentful";
+import { getPageBySlug, getAssetUrl } from "@/lib/contentful";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -27,30 +20,11 @@ export default async function ContactPage() {
   const headerImageUrl = page.headerImage
     ? getAssetUrl(page.headerImage)
     : undefined;
-  const blocks = page.contentBlocks ?? [];
 
   return (
     <>
       {headerImageUrl && <HeroImage src={headerImageUrl} />}
-      {blocks.map((block, i) => {
-        const typeId = block.sys.contentType?.sys?.id;
-        if (typeId === "contentBlock") {
-          return (
-            <ContentBlock
-              key={block.sys.id}
-              fields={block.fields as unknown as ContentBlockFields}
-              index={i}
-            />
-          );
-        }
-        if (typeId === "formBlock") {
-          const formFields = block.fields as unknown as FormBlockFields;
-          if (formFields.formType === "contact") {
-            return <ContactForm key={block.sys.id} heading={formFields.heading} />;
-          }
-        }
-        return null;
-      })}
+      <BlockRenderer blocks={page.contentBlocks ?? []} formType="contact" />
     </>
   );
 }

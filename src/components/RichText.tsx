@@ -1,7 +1,7 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Document } from "@contentful/rich-text-types";
-import { getAssetUrl, getAssetAlt } from "@/lib/contentful";
+import { getAssetUrl, getAssetAlt } from "@/lib/contentful-helpers";
 
 interface RichTextProps {
   document: Document;
