@@ -523,6 +523,10 @@ p {
    --------------------------------------------------------------------------- */
 
 @media (max-width: 48rem) {
+  body {
+    padding-bottom: 0;
+  }
+
   h1 {
     font-size: 1.75rem;
   }
@@ -537,7 +541,7 @@ p {
 
   .site-header .container {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .site-header__logo {
@@ -548,6 +552,19 @@ p {
     gap: calc(var(--space-xs) / 2);
     flex-direction: column;
     text-align: right;
+  }
+
+  .hero-block {
+    padding-top: var(--space-md);
+  }
+
+  .hero-block__heading {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .hero-block__subheading .rich-text p {
+    font-size: 1rem;
   }
 
   .content-block {

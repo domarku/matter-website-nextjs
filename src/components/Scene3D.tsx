@@ -70,9 +70,15 @@ function Logo() {
 
 useGLTF.preload("/matter-logo.gltf");
 
-export default function Scene3D() {
+export interface Scene3DProps {
+  className?: string;
+}
+
+export default function Scene3D({ className }: Scene3DProps) {
   return (
-    <section className="scene-3d">
+    <section
+      className={["scene-3d", className].filter(Boolean).join(" ")}
+    >
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
