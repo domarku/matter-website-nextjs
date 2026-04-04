@@ -8,9 +8,15 @@ export default function Footer({ siteName }: FooterProps) {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p>&copy; {new Date().getFullYear()} {siteName}</p>
+        <span>
+          &copy; {new Date().getFullYear()} {siteName}
+        </span>
         <nav className="footer-nav">
-          <a href="https://www.instagram.com/matterberlin/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/matterberlin/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Instagram
           </a>
           <Link href="/privacy">Privacy Policy</Link>

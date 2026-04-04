@@ -1,15 +1,18 @@
 import ContentBlock from "@/components/ContentBlock";
+import HeroBlock from "@/components/HeroBlock";
 import LogoCarousel from "@/components/LogoCarousel";
 import ApplyForm from "@/components/ApplyForm";
 import ContactForm from "@/components/ContactForm";
 import {
   isContentBlock,
   isFormBlock,
+  isHeroBlock,
   isLogoCarousel,
 } from "@/lib/contentful-helpers";
 import type {
   ContentBlockFields,
   FormBlockFields,
+  HeroBlockFields,
   LogoCarouselFields,
 } from "@/lib/contentful-helpers";
 import type { Asset } from "contentful";
@@ -25,6 +28,14 @@ export default function BlockRenderer({ blocks, formType }: BlockRendererProps) 
   return (
     <>
       {blocks.map((block: any, i: number) => {
+        if (isHeroBlock(block)) {
+          return (
+            <HeroBlock
+              key={block.sys.id}
+              fields={block.fields as unknown as HeroBlockFields}
+            />
+          );
+        }
         if (isContentBlock(block)) {
           return (
             <ContentBlock

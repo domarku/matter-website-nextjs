@@ -6,11 +6,13 @@ export type { Asset } from "contentful";
 export {
   type ContentBlockFields,
   type FormBlockFields,
+  type HeroBlockFields,
   type LogoCarouselFields,
   type PageFields,
   type SiteSettingsFields,
   isContentBlock,
   isFormBlock,
+  isHeroBlock,
   isLogoCarousel,
   getAssetUrl,
   getAssetAlt,

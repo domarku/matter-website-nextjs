@@ -17,6 +17,14 @@ export interface FormBlockFields {
   formType: "contact" | "apply";
 }
 
+export interface HeroBlockFields {
+  heading?: string;
+  subheading?: Document;
+  callToActionLabel?: string;
+  callToActionUrl?: string;
+  image?: Asset;
+}
+
 export interface LogoCarouselFields {
   title?: string;
   logos?: Asset[];
@@ -43,6 +51,10 @@ export function isContentBlock(entry: any): boolean {
 
 export function isFormBlock(entry: any): boolean {
   return entry?.sys?.contentType?.sys?.id === "formBlock";
+}
+
+export function isHeroBlock(entry: any): boolean {
+  return entry?.sys?.contentType?.sys?.id === "heroBlock";
 }
 
 export function isLogoCarousel(entry: any): boolean {

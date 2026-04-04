@@ -10,6 +10,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Maxi";
+  src: url("/ABCMaxiRoundMonoVariable-Trial.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------------------------------------------------------------------------
    Custom properties
    --------------------------------------------------------------------------- */
@@ -57,8 +65,8 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.2;
-  padding-top: var(--space-xl);
-  padding-bottom: 5rem;
+  padding-top: calc(var(--space-xl) * 2);
+  padding-bottom: calc(var(--space-xl) * 2);
 }
 
 img {
@@ -70,6 +78,10 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 ul {
@@ -136,24 +148,36 @@ p {
 
 .site-header .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: var(--space-md);
   max-width: none;
 }
 
-.site-header__logo {
-  position: fixed;
-  top: var(--space-sm);
-  left: calc(var(--space-md) - 1.8rem);
+.site-header .scene-3d {
+  position: relative;
+  top: -2rem;
+  left: -3rem;
   z-index: 1;
-  mix-blend-mode: darken;
 }
 
-.site-header__logo video {
+/* .site-header__logo video {
   height: 100px;
   width: 100px;
   object-fit: cover;
-  clip-path: inset(3px);
+  clip-path: inset(3px); */
+/* display: none; */
+/* } */
+
+.site-header .logo-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Maxi", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .site-nav {
@@ -172,14 +196,58 @@ p {
 }
 
 /* ---------------------------------------------------------------------------
+   3D scene
+   --------------------------------------------------------------------------- */
+
+.scene-3d {
+  width: 140px;
+  height: 140px;
+}
+
+.scene-3d canvas {
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
    Hero / header image
    --------------------------------------------------------------------------- */
 
+.hero-block {
+  padding-top: var(--space-xl);
+}
+
+.hero-block__heading {
+  font-size: 3rem;
+  line-height: 0.9;
+  margin-bottom: var(--space-md);
+}
+
+.hero-block__subheading .rich-text p {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.hero-block__cta {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease;
+}
+
+.hero-block__cta:hover {
+  background-color: var(--color-accent-hover);
+}
+
 .hero-image {
   width: 100%;
-  max-height: 60vh;
+  max-height: 80vh;
   object-fit: cover;
-  padding-top: var(--space-lg);
 }
 
 /* ---------------------------------------------------------------------------
@@ -187,7 +255,7 @@ p {
    --------------------------------------------------------------------------- */
 
 .content-block {
-  padding-block: var(--space-xl);
+  padding-block: var(--space-md);
 }
 
 .content-block__heading {
@@ -238,9 +306,39 @@ p {
   padding: 0 var(--space-md);
 }
 
-.image-gallery img {
+.image-gallery__item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.image-gallery__item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.image-gallery__item img {
   width: 100%;
   height: auto;
+  vertical-align: middle;
+  transition: opacity 0.2s ease;
+}
+
+.image-gallery__item--expanded {
+  cursor: zoom-out;
+  grid-column: span 2;
+}
+
+@media (min-width: 48.001rem) {
+  .image-gallery__item--expanded {
+    grid-column: span 3;
+  }
 }
 
 .image-gallery > *:nth-child(6n + 1) {
@@ -404,7 +502,7 @@ p {
   right: 0;
   z-index: 100;
   padding-block: var(--space-sm);
-  color: var(--color-text);
+  font-size: 0.875rem;
 }
 
 .site-footer .container {
@@ -425,11 +523,6 @@ p {
    --------------------------------------------------------------------------- */
 
 @media (max-width: 48rem) {
-
-  body {
-    padding-bottom: 0;
-  }
-
   h1 {
     font-size: 1.75rem;
   }

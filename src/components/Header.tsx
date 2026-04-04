@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoVideo from "@/components/LogoVideo";
+import Scene3D from "@/components/Scene3D";
 import type { PageFields } from "@/lib/contentful-helpers";
 
 interface HeaderProps {
@@ -17,15 +17,16 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <Link
-        href="/"
-        className="site-header__logo"
-        aria-label={`${siteName} — home`}
-      >
-        <LogoVideo />
-      </Link>
       <header className="site-header">
         <div className="container">
+          <Scene3D className="scene-3d" />
+          <Link
+            href="/"
+            className="logo-text"
+            aria-label={`${siteName} — home`}
+          >
+            {siteName}
+          </Link>
           <nav>
             <ul className="site-nav">
               {navigation.map((page) => {

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import BlockRenderer from "@/components/BlockRenderer";
 import HeroImage from "@/components/HeroImage";
+
 import { getPageBySlug, getAssetUrl } from "@/lib/contentful";
 import type { Metadata } from "next";
 
@@ -23,7 +24,6 @@ export default async function HomePage() {
 
   return (
     <>
-      {headerImageUrl && <HeroImage src={headerImageUrl} />}
       <BlockRenderer blocks={page.contentBlocks ?? []} />
     </>
   );
