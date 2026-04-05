@@ -19,7 +19,6 @@ export default function Header({
     <>
       <header className="site-header">
         <div className="container">
-          <Scene3D className="scene-3d" />
           <Link
             href="/"
             className="logo-text"
@@ -27,6 +26,7 @@ export default function Header({
           >
             {siteName}
           </Link>
+          <Scene3D className="scene-3d" />
           <nav>
             <ul className="site-nav">
               {navigation.map((page) => {

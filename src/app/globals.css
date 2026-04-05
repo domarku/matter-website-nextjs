@@ -189,18 +189,21 @@ p {
 }
 
 .site-header .container {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-md);
   max-width: none;
 }
 
+/* Out of flex flow so space-between only affects logo + nav; scene stays viewport-centered */
 .site-header .scene-3d {
-  position: relative;
+  position: absolute;
+  left: 50%;
   top: -2rem;
-  left: -3rem;
   z-index: 1;
+  transform: translateX(-50%);
 }
 
 /* .site-header__logo video {
@@ -212,9 +215,6 @@ p {
 /* } */
 
 .site-header .logo-text {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: "Maxi", sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
@@ -242,8 +242,8 @@ p {
    --------------------------------------------------------------------------- */
 
 .scene-3d {
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
 }
 
 .scene-3d canvas {
@@ -550,11 +550,11 @@ p {
 
   .site-header .container {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 
-  .site-header__logo {
-    left: calc(var(--space-sm) - 1.8rem);
+  .site-header .scene-3d {
+    top: -1rem;
   }
 
   .site-nav {
@@ -585,7 +585,7 @@ p {
   }
 
   .image-gallery {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
     gap: var(--space-sm);
   }
 
