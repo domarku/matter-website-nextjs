@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { getSiteSettings, getAssetUrl } from "@/lib/contentful";
 import "./globals.css";
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ScrollToTop />
         <Header
           siteName={siteName}
           logoUrl={logoUrl}
