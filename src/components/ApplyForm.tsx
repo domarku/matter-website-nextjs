@@ -90,7 +90,9 @@ export default function ApplyForm({ heading }: ApplyFormProps) {
               </span>
             </label>
           </div>
-          <button type="submit" className="form__submit">Submit Application</button>
+          <button type="submit" className="cta form__submit">
+            Submit Application
+          </button>
           {status === "success" && (
             <div className="form__message form__message--success">
               Thank you! Your application has been received.

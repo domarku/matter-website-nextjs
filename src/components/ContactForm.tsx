@@ -92,7 +92,9 @@ export default function ContactForm({ heading }: ContactFormProps) {
               </span>
             </label>
           </div>
-          <button type="submit" className="form__submit">Send Message</button>
+          <button type="submit" className="cta form__submit">
+            Send Message
+          </button>
           {status === "success" && (
             <div className="form__message form__message--success">
               Thank you! Your message has been sent.
