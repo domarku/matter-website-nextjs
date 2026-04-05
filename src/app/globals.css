@@ -325,6 +325,13 @@ p {
   font: inherit;
   cursor: zoom-in;
   text-align: left;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.15s ease;
+}
+
+.image-gallery__item:hover {
+  transform: scale(1.01);
 }
 
 .image-gallery__item:focus-visible {
@@ -336,7 +343,6 @@ p {
   width: 100%;
   height: auto;
   vertical-align: middle;
-  transition: opacity 0.2s ease;
 }
 
 .image-gallery__item--expanded {
