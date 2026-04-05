@@ -534,18 +534,27 @@ p {
 @media (max-width: 48rem) {
   body {
     padding-bottom: 0;
+    padding-top: calc(var(--space-xl) * 1.5);
   }
 
   h1 {
     font-size: 1.75rem;
   }
 
-  h2 {
-    font-size: 1.5rem;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1rem;
   }
 
   .site-header {
-    padding-block: var(--space-sm);
+    padding-block: var(--space-xs);
   }
 
   .site-header .container {
@@ -563,6 +572,10 @@ p {
     text-align: right;
   }
 
+  .page-title-wrap {
+    padding-bottom: var(--space-sm);
+  }
+
   .hero-block {
     padding-top: var(--space-md);
   }
@@ -577,11 +590,11 @@ p {
   }
 
   .content-block {
-    padding-block: var(--space-lg);
+    /* padding-block: var(--space-md); */
   }
 
   .container {
-    padding-inline: var(--space-sm);
+    padding-inline: var(--space-xs);
   }
 
   .image-gallery {
