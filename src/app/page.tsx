@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import BlockRenderer from "@/components/BlockRenderer";
-import HeroImage from "@/components/HeroImage";
-
-import { getPageBySlug, getAssetUrl } from "@/lib/contentful";
+import PageTitle from "@/components/PageTitle";
+import { getPageBySlug } from "@/lib/contentful";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,12 +17,9 @@ export default async function HomePage() {
   const page = await getPageBySlug("home");
   if (!page) notFound();
 
-  const headerImageUrl = page.headerImage
-    ? getAssetUrl(page.headerImage)
-    : undefined;
-
   return (
     <>
+      {/* <PageTitle title={page.title} /> */}
       <BlockRenderer blocks={page.contentBlocks ?? []} />
     </>
   );

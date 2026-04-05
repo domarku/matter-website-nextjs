@@ -5,14 +5,13 @@ import type { Asset } from "contentful";
 
 interface ContentBlockProps {
   fields: ContentBlockFields;
-  index: number;
 }
 
-export default function ContentBlock({ fields, index }: ContentBlockProps) {
+export default function ContentBlock({ fields }: ContentBlockProps) {
   const { heading, body, isHero, callToActionLabel, callToActionUrl, images } =
     fields;
 
-  const HeadingTag = index === 0 ? "h1" : "h2";
+  const HeadingTag = "h2";
   const blockClass = `content-block${isHero ? " content-block--hero" : ""}`;
 
   return (
@@ -27,7 +26,7 @@ export default function ContentBlock({ fields, index }: ContentBlockProps) {
           </div>
         )}
         {callToActionLabel && callToActionUrl && (
-          <a href={callToActionUrl} className="content-block__cta">
+          <a href={callToActionUrl} className="cta">
             {callToActionLabel}
           </a>
         )}

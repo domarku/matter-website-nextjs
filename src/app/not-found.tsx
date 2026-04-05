@@ -9,7 +9,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="content-block__cta"
+        className="cta"
         style={{ marginTop: "var(--space-md)" }}
       >
         Back to home

@@ -27,7 +27,7 @@ interface BlockRendererProps {
 export default function BlockRenderer({ blocks, formType }: BlockRendererProps) {
   return (
     <>
-      {blocks.map((block: any, i: number) => {
+      {blocks.map((block: any) => {
         if (isHeroBlock(block)) {
           return (
             <HeroBlock
@@ -41,7 +41,6 @@ export default function BlockRenderer({ blocks, formType }: BlockRendererProps) 
             <ContentBlock
               key={block.sys.id}
               fields={block.fields as unknown as ContentBlockFields}
-              index={i}
             />
           );
         }

@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import BlockRenderer from "@/components/BlockRenderer";
+import PageTitle from "@/components/PageTitle";
 import { getPageBySlug, getAssetUrl } from "@/lib/contentful";
 import type { Metadata } from "next";
 
@@ -33,6 +33,7 @@ export default async function PrivacyPage() {
 
   return (
     <>
+      <PageTitle title={page.title} />
       {headerImageUrl && (
         <img className="hero-image" src={headerImageUrl} alt="" />
       )}

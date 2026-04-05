@@ -5,7 +5,7 @@
 @font-face {
   font-family: "Exat";
   src: url("/ExatWide-Regular-TEST.otf") format("opentype");
-  font-weight: 100;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -97,7 +97,7 @@ ul li {
    --------------------------------------------------------------------------- */
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
   line-height: 1.15;
 }
@@ -112,6 +112,14 @@ h3 {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.35;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 p {
@@ -131,6 +139,40 @@ p {
 
 .section {
   padding-block: var(--space-lg);
+}
+
+.page-title-wrap {
+  padding-bottom: var(--space-md);
+}
+
+.page-title {
+  margin: 0;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease;
+}
+
+.cta:hover {
+  background:
+    linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.25)),
+    linear-gradient(
+      left top,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0)
+    );
+  text-decoration: none;
 }
 
 /* ---------------------------------------------------------------------------
@@ -217,7 +259,7 @@ p {
 }
 
 .hero-block__heading {
-  font-size: 3rem;
+  font-size: 4.5rem;
   line-height: 0.9;
   margin-bottom: var(--space-md);
 }
@@ -226,22 +268,6 @@ p {
   font-size: 1.5rem;
   margin-bottom: var(--space-sm);
   color: var(--color-text);
-}
-
-.hero-block__cta {
-  display: inline-block;
-  margin-bottom: var(--space-md);
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  border-radius: 0.25rem;
-  transition: background-color 0.15s ease;
-}
-
-.hero-block__cta:hover {
-  background-color: var(--color-accent-hover);
 }
 
 .hero-image {
@@ -273,23 +299,6 @@ p {
 
 .content-block__body p:last-child {
   margin-bottom: 0;
-}
-
-/* CTA */
-.content-block__cta {
-  display: inline-block;
-  margin-top: var(--space-sm);
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  border-radius: 0.25rem;
-  transition: background-color 0.15s ease;
-}
-
-.content-block__cta:hover {
-  background-color: var(--color-accent-hover);
 }
 
 /* ---------------------------------------------------------------------------

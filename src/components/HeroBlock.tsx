@@ -16,14 +16,14 @@ export default function HeroBlock({ fields }: HeroBlockProps) {
   return (
     <section className="hero-block">
       <div className="container">
-        {heading && <h1 className="hero-block__heading">{heading}</h1>}
+        {heading && <h2 className="hero-block__heading">{heading}</h2>}
         {subheading && (
           <div className="hero-block__subheading">
             <RichText document={subheading} />
           </div>
         )}
         {callToActionLabel && callToActionUrl && (
-          <a href={callToActionUrl} className="hero-block__cta">
+          <a href={callToActionUrl} className="cta">
             {callToActionLabel}
           </a>
         )}
@@ -37,6 +37,7 @@ export default function HeroBlock({ fields }: HeroBlockProps) {
           height={823}
           sizes="100vw"
           priority
+          fetchPriority="high"
           style={{ height: "auto" }}
         />
       )}

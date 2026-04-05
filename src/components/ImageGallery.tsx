@@ -29,13 +29,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 ? "image-gallery__item image-gallery__item--expanded"
                 : "image-gallery__item"
             }
-            onClick={() =>
-              setExpandedIndex((prev) => (prev === i ? null : i))
-            }
+            onClick={() => setExpandedIndex((prev) => (prev === i ? null : i))}
             aria-pressed={isExpanded}
-            aria-label={
-              isExpanded ? "Show image smaller" : "Show image larger"
-            }
+            aria-label={isExpanded ? "Show image smaller" : "Show image larger"}
           >
             <Image
               src={getAssetUrl(img)!}
