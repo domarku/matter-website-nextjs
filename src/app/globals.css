@@ -301,7 +301,7 @@ main > *:nth-child(5) {
 
 .hero-block__heading {
   font-size: 3rem;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .hero-block__subheading .rich-text p {
@@ -618,11 +618,7 @@ main > *:nth-child(5) {
 
   .hero-block__heading {
     font-size: 2.2rem;
-    line-height: 1.1;
-    transform:
-      translateY(0.25rem),
-      opacity(1) 0.15s ease;
-    transition: transform 0.15s ease;
+    line-height: 0.9;
   }
 
   .hero-block__subheading .rich-text p {
