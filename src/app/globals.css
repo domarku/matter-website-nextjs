@@ -300,6 +300,7 @@ main > *:nth-child(5) {
 }
 
 .hero-block__heading {
+  font-size: 3rem;
   margin-bottom: var(--space-md);
 }
 
