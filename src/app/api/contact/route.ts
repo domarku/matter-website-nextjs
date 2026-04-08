@@ -52,7 +52,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: `Matter <${confirmation.from}>`,
         to: email,
-        subject: `We received your message, ${name}`,
+        subject: confirmation.subject,
         html: `${bodyHtml}<hr/><h3>Your submission</h3>${submissionHtml}`,
       });
     }
