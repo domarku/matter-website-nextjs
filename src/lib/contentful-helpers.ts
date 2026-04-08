@@ -41,6 +41,7 @@ export interface PageFields {
 export interface ConfirmationEmailFields {
   form: "Contact" | "Apply";
   from: string;
+  subject: string;
   emailBody: Document;
 }
 
