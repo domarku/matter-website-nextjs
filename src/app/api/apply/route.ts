@@ -50,11 +50,12 @@ export async function POST(request: Request) {
     const confirmation = await getConfirmationEmail("Apply");
     if (confirmation) {
       const bodyHtml = documentToHtmlString(confirmation.emailBody);
+      const senderName = confirmation.fromName || "Matter";
       await resend.emails.send({
-        from: `Matter <${confirmation.from}>`,
+        from: `${senderName} <${confirmation.from}>`,
         to: email,
         subject: confirmation.subject,
-        html: `${bodyHtml}<hr/><h3>Your submission</h3>${submissionHtml}`,
+        html: `${bodyHtml}<hr/><h3>Your submission</h3>${submissionHtml}${confirmation.emailFooter ? `<hr/><footer>${documentToHtmlString(confirmation.emailFooter)}</footer>` : ""}`,
       });
     }
 

@@ -40,9 +40,11 @@ export interface PageFields {
 
 export interface ConfirmationEmailFields {
   form: "Contact" | "Apply";
+  fromName?: string;
   from: string;
   subject: string;
   emailBody: Document;
+  emailFooter?: Document;
 }
 
 export interface SiteSettingsFields {
