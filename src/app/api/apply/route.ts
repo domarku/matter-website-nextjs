@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: "Matter Website <onboarding@resend.dev>",
+      from: "Matter Website <noreply@matter-berlin.com>",
       to: toEmail,
       subject: `New application from ${name}`,
       html: `
