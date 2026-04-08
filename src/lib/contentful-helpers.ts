@@ -38,6 +38,12 @@ export interface PageFields {
   contentBlocks?: any[];
 }
 
+export interface ConfirmationEmailFields {
+  form: "Contact" | "Apply";
+  from: string;
+  emailBody: Document;
+}
+
 export interface SiteSettingsFields {
   siteName: string;
   logo?: Asset;
