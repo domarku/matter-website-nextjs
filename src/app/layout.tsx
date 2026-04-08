@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { getSiteSettings, getAssetUrl } from "@/lib/contentful";
 import "./globals.css";
+
+const exat = localFont({
+  src: "../../public/ExatWide-Regular-TEST.otf",
+  weight: "500",
+  style: "normal",
+  variable: "--font-exat",
+});
+
+const maxi = localFont({
+  src: "../../public/ABCMaxiRoundMonoVariable-Trial.ttf",
+  weight: "500",
+  style: "normal",
+  variable: "--font-maxi",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
@@ -28,7 +43,7 @@ export default async function RootLayout({
   const navigation = (settings?.navigation ?? []) as any[];
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${exat.variable} ${maxi.variable}`}>
       <body>
         <ScrollToTop />
         <Header

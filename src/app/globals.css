@@ -1,24 +1,4 @@
 /* ---------------------------------------------------------------------------
-   Font faces
-   --------------------------------------------------------------------------- */
-
-@font-face {
-  font-family: "Exat";
-  src: url("/ExatWide-Regular-TEST.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Maxi";
-  src: url("/ABCMaxiRoundMonoVariable-Trial.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ---------------------------------------------------------------------------
    Custom properties
    --------------------------------------------------------------------------- */
 
@@ -29,7 +9,7 @@
   --color-accent: #1a1a1a;
   --color-accent-hover: #0b0606;
 
-  --font-sans: "Exat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: var(--font-exat), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -256,7 +236,7 @@ main > *:nth-child(5) {
 /* } */
 
 .site-header .logo-text {
-  font-family: "Maxi", sans-serif;
+  font-family: var(--font-maxi), sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: uppercase;
