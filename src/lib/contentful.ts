@@ -1,9 +1,14 @@
 import "server-only";
 import { createClient, type EntrySkeletonType } from "contentful";
-import type { PageFields, SiteSettingsFields } from "./contentful-helpers";
+import type {
+  ConfirmationEmailFields,
+  PageFields,
+  SiteSettingsFields,
+} from "./contentful-helpers";
 
 export type { Asset } from "contentful";
 export {
+  type ConfirmationEmailFields,
   type ContentBlockFields,
   type FormBlockFields,
   type HeroBlockFields,
@@ -36,6 +41,24 @@ export async function getSiteSettings() {
   } catch {
     console.warn(
       "[contentful] Could not fetch siteSettings — content type may not exist yet",
+    );
+    return undefined;
+  }
+}
+
+export async function getConfirmationEmail(form: "Contact" | "Apply") {
+  try {
+    const entries = await client.getEntries<EntrySkeletonType>({
+      content_type: "confirmationEmail",
+      "fields.form": form,
+      limit: 1,
+    });
+    return entries.items[0]?.fields as unknown as
+      | ConfirmationEmailFields
+      | undefined;
+  } catch {
+    console.warn(
+      `[contentful] Could not fetch confirmationEmail for "${form}"`,
     );
     return undefined;
   }
