@@ -218,13 +218,17 @@ main > *:nth-child(5) {
   max-width: none;
 }
 
-/* Out of flex flow so space-between only affects logo + nav; scene stays viewport-centered */
-.site-header .scene-3d {
+.site-header .scene-3d-link {
   position: absolute;
   left: 50%;
   top: -2rem;
   z-index: 1;
   transform: translateX(-50%);
+}
+
+.scene-3d-link .scene-3d {
+  position: static;
+  transform: none;
 }
 
 /* .site-header__logo video {
@@ -612,7 +616,11 @@ main > *:nth-child(5) {
     align-items: center;
   }
 
-  .site-header .scene-3d {
+  .site-header .logo-text {
+    display: none;
+  }
+
+  .site-header .scene-3d-link {
     top: -1rem;
   }
 

@@ -26,7 +26,9 @@ export default function Header({
           >
             {siteName}
           </Link>
-          <Scene3D className="scene-3d" />
+          <Link href="/" className="scene-3d-link" aria-label="Home">
+            <Scene3D className="scene-3d" />
+          </Link>
           <nav>
             <ul className="site-nav">
               {navigation.map((page) => {
