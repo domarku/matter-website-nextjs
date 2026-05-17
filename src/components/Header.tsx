@@ -24,7 +24,7 @@ export default function Header({ siteName, navigation }: HeaderProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const firstOverlayLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const menuCloseRef = useRef<HTMLButtonElement>(null);
   const menuWasOpenRef = useRef(false);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Header({ siteName, navigation }: HeaderProps) {
   useEffect(() => {
     if (menuOpen) {
       menuWasOpenRef.current = true;
-      queueMicrotask(() => firstOverlayLinkRef.current?.focus());
+      queueMicrotask(() => menuCloseRef.current?.focus());
     } else if (menuWasOpenRef.current) {
       menuWasOpenRef.current = false;
       menuButtonRef.current?.focus();
@@ -98,14 +98,13 @@ export default function Header({ siteName, navigation }: HeaderProps) {
           className="site-header__menu-toggle"
           aria-expanded={menuOpen}
           aria-controls="site-menu-overlay"
-          onClick={() => setMenuOpen((open) => !open)}
+          hidden={menuOpen}
+          onClick={() => setMenuOpen(true)}
         >
           <span className="material-symbols-sharp" aria-hidden>
-            {menuOpen ? "close" : "menu"}
+            menu
           </span>
-          <span className="visually-hidden">
-            {menuOpen ? "Close menu" : "Open menu"}
-          </span>
+          <span className="visually-hidden">Open menu</span>
         </button>
       </div>
 
@@ -117,9 +116,30 @@ export default function Header({ siteName, navigation }: HeaderProps) {
         aria-label="Menu"
         hidden={!menuOpen}
       >
+        <div className="site-menu-overlay__top">
+          <Link
+            href="/"
+            className="logo-text site-menu-overlay__logo"
+            aria-label={`${siteName} — home`}
+            onClick={() => setMenuOpen(false)}
+          >
+            {siteName}
+          </Link>
+          <button
+            ref={menuCloseRef}
+            type="button"
+            className="site-menu-overlay__close"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <span className="material-symbols-sharp" aria-hidden>
+              close
+            </span>
+          </button>
+        </div>
         <nav className="site-menu-overlay__nav" aria-label="Site">
           <ul className="site-menu-overlay__list">
-            {navigation.map((page: any, navIndex: number) => {
+            {navigation.map((page: any) => {
               const fields = page.fields as unknown as PageFields;
               const slug = fields.slug;
               const href = slug === "home" ? "/" : `/${slug}`;
@@ -127,7 +147,6 @@ export default function Header({ siteName, navigation }: HeaderProps) {
               return (
                 <li key={page.sys.id}>
                   <Link
-                    ref={navIndex === 0 ? firstOverlayLinkRef : undefined}
                     href={href}
                     className="site-menu-overlay__link"
                     aria-current={isCurrent ? "page" : undefined}
@@ -145,38 +164,32 @@ export default function Header({ siteName, navigation }: HeaderProps) {
                 aria-hidden="true"
               />
             ) : null}
-            {SITE_FOOTER_MENU_LINKS.map((item, i) => {
-              const footerRef =
-                navigation.length === 0 && i === 0 ? firstOverlayLinkRef : undefined;
-              return (
-                <li key={item.href}>
-                  {item.external ? (
-                    <a
-                      ref={footerRef}
-                      href={item.href}
-                      className="site-menu-overlay__link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      ref={footerRef}
-                      href={item.href}
-                      className="site-menu-overlay__link"
-                      aria-current={
-                        pathname === item.href ? "page" : undefined
-                      }
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
+            {SITE_FOOTER_MENU_LINKS.map((item) => (
+              <li key={item.href}>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    className="site-menu-overlay__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="site-menu-overlay__link"
+                    aria-current={
+                      pathname === item.href ? "page" : undefined
+                    }
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
