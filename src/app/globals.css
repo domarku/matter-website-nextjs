@@ -203,7 +203,7 @@ p {
   padding: 0.75rem 1.5rem;
   background-color: var(--color-accent);
   color: var(--color-bg);
-  font-size: var(--text-4);
+  font-size: var(--text-1);
   font-weight: 500;
 }
 
@@ -331,6 +331,15 @@ main > *:nth-child(5) {
   background: none;
   cursor: pointer;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-header__menu-toggle:focus,
+.site-header__menu-toggle:focus-visible,
+.site-menu-overlay__close:focus,
+.site-menu-overlay__close:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .site-header__menu-toggle .material-symbols-sharp,
@@ -918,6 +927,7 @@ main > *:nth-child(5) {
   .home-page .hero-block__bg-frame {
     width: min(100%, 90vw);
     max-width: 90vw;
+    margin-top: var(--space-lg);
   }
 
   /* Full image visible, centered (desktop hero uses cover) */
