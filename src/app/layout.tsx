@@ -44,6 +44,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${exat.variable} ${maxi.variable}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+      </head>
       <body>
         <ScrollToTop />
         <Header
