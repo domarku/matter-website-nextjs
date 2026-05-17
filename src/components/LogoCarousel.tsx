@@ -19,8 +19,8 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
       className="logo-carousel__item"
       src={getAssetUrl(logo)!}
       alt={getAssetAlt(logo)}
-      width={160}
-      height={60}
+      width={138}
+      height={52}
       style={{ objectFit: "contain" }}
     />
   ));
