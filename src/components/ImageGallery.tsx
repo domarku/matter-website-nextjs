@@ -39,7 +39,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               width={600}
               height={450}
               sizes="(max-width: 48rem) 100vw, 40vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", width: "100%", height: "auto" }}
             />
           </button>
         );

@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { getSiteSettings, getAssetUrl } from "@/lib/contentful";
+import { getSiteSettings } from "@/lib/contentful";
 import "./globals.css";
 
 const exat = localFont({
@@ -38,7 +38,6 @@ export default async function RootLayout({
 }) {
   const settings = await getSiteSettings();
   const siteName = settings?.siteName ?? "Matter";
-  const logoUrl = settings?.logo ? getAssetUrl(settings.logo) : undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const navigation = (settings?.navigation ?? []) as any[];
 
@@ -52,11 +51,7 @@ export default async function RootLayout({
       </head>
       <body>
         <ScrollToTop />
-        <Header
-          siteName={siteName}
-          logoUrl={logoUrl}
-          navigation={navigation}
-        />
+        <Header siteName={siteName} navigation={navigation} />
         <main>{children}</main>
         <Footer siteName={siteName} />
         <Analytics />

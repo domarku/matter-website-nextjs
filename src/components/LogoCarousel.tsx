@@ -21,7 +21,7 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
       alt={getAssetAlt(logo)}
       width={138}
       height={52}
-      style={{ objectFit: "contain" }}
+      style={{ objectFit: "contain", width: "auto" }}
     />
   ));
 

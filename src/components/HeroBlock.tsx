@@ -37,8 +37,11 @@ export default function HeroBlock({ fields }: HeroBlockProps) {
           </div>
         )}
         {callToActionLabel && callToActionUrl && (
-          <a href={callToActionUrl} className="cta">
+          <a href={callToActionUrl} className="cta hero-block__cta">
             {callToActionLabel}
+            <span className="hero-block__cta-arrow" aria-hidden="true">
+              →
+            </span>
           </a>
         )}
       </div>
