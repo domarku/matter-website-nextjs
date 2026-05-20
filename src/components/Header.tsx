@@ -11,7 +11,6 @@ import { SITE_FOOTER_MENU_LINKS } from "@/lib/site-menu-links";
 
 interface HeaderProps {
   siteName: string;
-  logoUrl?: string;
   navigation: any[];
 }
 
@@ -63,10 +62,17 @@ export default function Header({ siteName, navigation }: HeaderProps) {
       <div className="container">
         <Link
           href="/"
-          className="logo-text"
+          className="site-header__logo-link"
           aria-label={`${siteName} — home`}
         >
-          {siteName}
+          <img
+            src="/matter-logo.svg"
+            alt=""
+            className="site-header__logo"
+            width={275}
+            height={54}
+            decoding="async"
+          />
         </Link>
 
         <Scene3D className="scene-3d" />
@@ -119,11 +125,18 @@ export default function Header({ siteName, navigation }: HeaderProps) {
         <div className="site-menu-overlay__top">
           <Link
             href="/"
-            className="logo-text site-menu-overlay__logo"
+            className="site-menu-overlay__logo site-header__logo-link"
             aria-label={`${siteName} — home`}
             onClick={() => setMenuOpen(false)}
           >
-            {siteName}
+            <img
+              src="/matter-logo.svg"
+              alt=""
+              className="site-header__logo"
+              width={275}
+              height={54}
+              decoding="async"
+            />
           </Link>
           <button
             ref={menuCloseRef}

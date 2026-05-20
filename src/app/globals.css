@@ -218,8 +218,35 @@ p {
   text-decoration: none;
 }
 
+.hero-block__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.hero-block__cta-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-block__cta:hover .hero-block__cta-arrow,
+.hero-block__cta:focus-visible .hero-block__cta-arrow {
+  transform: translateX(-0.3em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-block__cta-arrow {
+    transition: none;
+  }
+
+  .hero-block__cta:hover .hero-block__cta-arrow,
+  .hero-block__cta:focus-visible .hero-block__cta-arrow {
+    transform: none;
+  }
+}
+
 /* ---------------------------------------------------------------------------
-   Main: staggered soft reveal (direct children only — header/footer excluded)
+   Staggered soft reveal: main sections + desktop/mobile menu links
    --------------------------------------------------------------------------- */
 
 @keyframes main-section-reveal {
@@ -234,29 +261,73 @@ p {
   }
 }
 
-main > * {
+main > *,
+.site-nav--desktop ul > li > a,
+.site-menu-overlay__list > li > a {
   animation: main-section-reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal
     both;
 }
 
-main > *:nth-child(1) {
+main > *:nth-child(1),
+.site-nav--desktop ul > li:nth-child(1) > a,
+.site-menu-overlay__list > li:nth-child(1) > a {
   animation-delay: 0s;
 }
-main > *:nth-child(2) {
+main > *:nth-child(2),
+.site-nav--desktop ul > li:nth-child(2) > a,
+.site-menu-overlay__list > li:nth-child(2) > a {
   animation-delay: 0.05s;
 }
-main > *:nth-child(3) {
+main > *:nth-child(3),
+.site-nav--desktop ul > li:nth-child(3) > a,
+.site-menu-overlay__list > li:nth-child(3) > a {
   animation-delay: 0.1s;
 }
-main > *:nth-child(4) {
+main > *:nth-child(4),
+.site-nav--desktop ul > li:nth-child(4) > a,
+.site-menu-overlay__list > li:nth-child(4) > a {
   animation-delay: 0.15s;
 }
-main > *:nth-child(5) {
+main > *:nth-child(5),
+.site-nav--desktop ul > li:nth-child(5) > a,
+.site-menu-overlay__list > li:nth-child(5) > a {
   animation-delay: 0.2s;
 }
 
+/* Longer menus: same 50ms stagger (extra main sections still use 0s delay) */
+.site-nav--desktop ul > li:nth-child(6) > a,
+.site-menu-overlay__list > li:nth-child(6) > a {
+  animation-delay: 0.25s;
+}
+.site-nav--desktop ul > li:nth-child(7) > a,
+.site-menu-overlay__list > li:nth-child(7) > a {
+  animation-delay: 0.3s;
+}
+.site-nav--desktop ul > li:nth-child(8) > a,
+.site-menu-overlay__list > li:nth-child(8) > a {
+  animation-delay: 0.35s;
+}
+.site-nav--desktop ul > li:nth-child(9) > a,
+.site-menu-overlay__list > li:nth-child(9) > a {
+  animation-delay: 0.4s;
+}
+.site-nav--desktop ul > li:nth-child(10) > a,
+.site-menu-overlay__list > li:nth-child(10) > a {
+  animation-delay: 0.45s;
+}
+.site-nav--desktop ul > li:nth-child(11) > a,
+.site-menu-overlay__list > li:nth-child(11) > a {
+  animation-delay: 0.5s;
+}
+.site-nav--desktop ul > li:nth-child(12) > a,
+.site-menu-overlay__list > li:nth-child(12) > a {
+  animation-delay: 0.55s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  main > * {
+  main > *,
+  .site-nav--desktop ul > li > a,
+  .site-menu-overlay__list > li > a {
     animation: none;
     opacity: 1;
     transform: none;
@@ -294,12 +365,17 @@ main > *:nth-child(5) {
   transform: translateX(-50%);
 }
 
-.site-header .logo-text {
-  font-family: var(--font-maxi), sans-serif;
-  font-size: var(--text-5);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
+.site-header__logo-link {
+  display: block;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.site-header__logo {
+  display: block;
+  height: var(--text-2);
+  width: auto;
+  max-width: 100%;
 }
 
 .site-nav ul {
@@ -836,7 +912,7 @@ main > *:nth-child(5) {
     padding-top: calc(var(--space-lg) * 2);
   }
 
-  .site-header .container .logo-text {
+  .site-header .container .site-header__logo-link {
     display: none;
   }
 

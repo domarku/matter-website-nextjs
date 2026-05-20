@@ -20,13 +20,13 @@
     "react-dom": "^19.2.5",
     "resend": "^6.12.2",
     "server-only": "^0.0.1",
-    "three": "^0.184.0"
+    "three": "0.182.0"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@types/three": "^0.184.0",
+    "@types/three": "0.182.0",
     "typescript": "^6.0.3"
   }
 }
